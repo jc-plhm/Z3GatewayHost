@@ -5,9 +5,9 @@ FrameworkDirectory:protocol\zigbee\app\framework
 
 appId: znet
 frameworkVariant: em35xezsp
-GenerationDirectory:PATH(ABSOLUTE):C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.2\Z3GatewayHost
+GenerationDirectory:PATH(ABSOLUTE):C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.2\Z3GatewayHost_Sectronic
 
-DeviceName:Z3GatewayHost
+DeviceName:Z3GatewayHost_Sectronic
 
 Host:pc
 

@@ -30,9 +30,9 @@
 #     .a file extension.
 #
 # Then pass the makefile to this one on the command line with:
-#   "make -C app/builder/Z3GatewayHost INCLUDE_MAKEFILE=my-custom.mak"
+#   "make -C app/builder/Z3GatewayHost_Sectronic INCLUDE_MAKEFILE=my-custom.mak"
 #   or 
-#   "cd app/builder/Z3GatewayHost; make INCLUDE_MAKEFILE=my-custom.mak"
+#   "cd app/builder/Z3GatewayHost_Sectronic; make INCLUDE_MAKEFILE=my-custom.mak"
 #
 
 ifdef INCLUDE_MAKEFILE
@@ -75,7 +75,7 @@ INCLUDES= -I./ \
   -I./../protocol/zigbee/app/framework/include \
   -I./../protocol/zigbee/app/framework/security \
   -I./../protocol/zigbee/app/framework/util \
-  -I./Z3GatewayHost \
+  -I./Z3GatewayHost_Sectronic \
   -I./../platform/base/hal \
   -I./../platform/base/hal/plugin \
   -I./../platform/base/hal/.. \
@@ -97,8 +97,8 @@ INCLUDES= -I./ \
  \
 
 APP_BUILDER_OUTPUT_DIRECTORY=.
-APP_BUILDER_CONFIG_HEADER=$(APP_BUILDER_OUTPUT_DIRECTORY)/Z3GatewayHost.h
-APP_BUILDER_STORAGE_FILE=$(APP_BUILDER_OUTPUT_DIRECTORY)/Z3GatewayHost_endpoint_config.h
+APP_BUILDER_CONFIG_HEADER=$(APP_BUILDER_OUTPUT_DIRECTORY)/Z3GatewayHost_Sectronic.h
+APP_BUILDER_STORAGE_FILE=$(APP_BUILDER_OUTPUT_DIRECTORY)/Z3GatewayHost_Sectronic_endpoint_config.h
 
 PLATFORM_HEADER_FILE ?= \"../platform/base/hal/micro/unix/compiler/gcc.h\"
 
@@ -114,7 +114,7 @@ DEFINES = \
   -DATTRIBUTE_STORAGE_CONFIGURATION=\"$(APP_BUILDER_STORAGE_FILE)\" \
   -DPLATFORM_HEADER=$(PLATFORM_HEADER_FILE) \
     -DBOARD_HOST \
-  -DBOARD_HEADER=\"Z3GatewayHost_board.h\" \
+  -DBOARD_HEADER=\"Z3GatewayHost_Sectronic_board.h\" \
   -DEM_AF_TEST_HARNESS_CODE \
   -DEM_AF_LINK_M \
   -DEM_AF_LINK_PTHREAD \
@@ -141,7 +141,7 @@ APPLICATION_FILES= \
   ./callback-stub.c \
   ./stack-handler-stub.c \
   ./znet-cli.c \
-  ./Z3GatewayHost_callbacks.c \
+  ./Z3GatewayHost_Sectronic_callbacks.c \
   ../protocol/zigbee/app/framework/../util/common/library.c \
   ../protocol/zigbee/app/framework/../util/serial/command-interpreter2.c \
   ../protocol/zigbee/app/framework/../util/zigbee-framework/zigbee-device-common.c \
@@ -347,9 +347,9 @@ EXE_DIR=$(OUTPUT_DIR)/exe
 APPLICATION_OBJECTS= $(addprefix $(OUTPUT_DIR)/, $(notdir $(APPLICATION_FILES:.c=.o)))
 
 ifdef GENERATE_LIBRARY
-TARGET_FILE= $(EXE_DIR)/Z3GatewayHost$(ARCHIVE_EXTENSION)
+TARGET_FILE= $(EXE_DIR)/Z3GatewayHost_Sectronic$(ARCHIVE_EXTENSION)
 else
-TARGET_FILE= $(EXE_DIR)/Z3GatewayHost
+TARGET_FILE= $(EXE_DIR)/Z3GatewayHost_Sectronic
 endif
 
 # -MMD and -MF generates Makefile dependencies while at the same time compiling.

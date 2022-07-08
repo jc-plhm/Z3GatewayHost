@@ -25,7 +25,7 @@
 #define EM_AF_GENERATED_NETWORK_STRINGS  \
   "Primary (pro)", \
 /**** ZCL Section ****/
-#define ZA_PROMPT "Z3GatewayHost"
+#define ZA_PROMPT "Z3GatewayHost_Sectronic"
 #define ZCL_USING_BASIC_CLUSTER_CLIENT
 #define ZCL_USING_BASIC_CLUSTER_SERVER
 #define ZCL_USING_IDENTIFY_CLUSTER_CLIENT
