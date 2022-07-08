@@ -13,4 +13,4 @@ RUN mkdir -p /app/src
 
 COPY etc/init.sh /app/
 COPY src /app/src/
-#ENTRYPOINT ["./init.sh" ]
+ENTRYPOINT ["./init.sh" ]
