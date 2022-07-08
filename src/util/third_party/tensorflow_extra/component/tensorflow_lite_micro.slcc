@@ -1,0 +1,112 @@
+id: tensorflow_lite_micro
+package: platform
+label: TensorFlow Lite Micro
+description: >
+  This component provides TensorFlow Lite for Microcontrollers from TensorFlow 2.4.1, 
+  a set of tools designed to run machine-learning models on microcontrollers. 
+
+  By default, this component attempts to include kernel implementations which
+  are optimized for the given hardware. To use the reference software
+  implementations, ensure that only the "TensorFlow Lite Micro Reference Kernels"
+  component is added to your project.
+
+  Debug Logging is provided by default using IO Stream. To disable debug logging,
+  include the "TensorFlow Lite Micro Debug Log None" component to the project.
+
+  Note that this component adds TensorFlow compatible versions of
+  CMSIS NN and CMSIS DSP to the project. To avoid conflicts, these libraries should
+  not be included elsewhere in the project.
+
+category: Platform|Machine Learning|TensorFlow
+quality: alpha
+provides:
+  - name: tensorflow_lite_micro
+requires:
+  - name: tensorflow_dependency_ruy
+  - name: tensorflow_dependency_flatbuffers
+  - name: tensorflow_dependency_gemmlowp
+  - name: tensorflow_kernel_implementation
+  - name: tensorflow_debug_log_implementation
+  - name: toolchain_gcc
+  - name: cpp_support
+recommends:
+  - id: tensorflow_lite_micro_reference_kernels
+    condition: [cortexm0plus]
+  - id: tensorflow_lite_micro_reference_kernels
+    condition: [cortexm3]
+  - id: tensorflow_lite_micro_optimized_kernels
+    condition: [cortexm4]
+  - id: tensorflow_lite_micro_optimized_kernels
+    condition: [device_sdid_200]
+  - id: tensorflow_lite_micro_optimized_kernels
+    condition: [device_sdid_205]
+  - id: tensorflow_lite_micro_optimized_kernels
+    condition: [device_sdid_210]
+  - id: tensorflow_lite_micro_optimized_kernels
+    condition: [device_has_mvp]
+  - id: tensorflow_debug_log_iostream
+root_path: util/third_party/tensorflow
+include:
+  - path: .
+    file_list:
+      - path: tensorflow/lite/micro/all_ops_resolver.h
+      - path: tensorflow/lite/micro/compatibility.h
+      - path: tensorflow/lite/micro/debug_log.h
+      - path: tensorflow/lite/micro/memory_helpers.h
+      - path: tensorflow/lite/micro/micro_allocator.h
+      - path: tensorflow/lite/micro/micro_error_reporter.h
+      - path: tensorflow/lite/micro/micro_interpreter.h
+      - path: tensorflow/lite/micro/micro_mutable_op_resolver.h
+      - path: tensorflow/lite/micro/micro_op_resolver.h
+      - path: tensorflow/lite/micro/micro_profiler.h
+      - path: tensorflow/lite/micro/micro_string.h
+      - path: tensorflow/lite/micro/micro_time.h
+      - path: tensorflow/lite/micro/micro_utils.h
+      - path: tensorflow/lite/micro/recording_micro_allocator.h
+      - path: tensorflow/lite/micro/recording_micro_interpreter.h
+      - path: tensorflow/lite/micro/recording_simple_memory_allocator.h
+      - path: tensorflow/lite/micro/simple_memory_allocator.h
+      - path: tensorflow/lite/micro/test_helpers.h
+      - path: tensorflow/lite/micro/memory_planner/greedy_memory_planner.h
+      - path: tensorflow/lite/micro/memory_planner/linear_memory_planner.h
+      - path: tensorflow/lite/micro/memory_planner/memory_planner.h
+      - path: tensorflow/lite/micro/testing/micro_test.h
+      - path: tensorflow/core/public/version.h
+      - path: tensorflow/lite/c/builtin_op_data.h
+      - path: tensorflow/lite/c/common.h
+      - path: tensorflow/lite/core/api/error_reporter.h
+      - path: tensorflow/lite/core/api/flatbuffer_conversions.h
+      - path: tensorflow/lite/core/api/op_resolver.h
+      - path: tensorflow/lite/core/api/profiler.h
+      - path: tensorflow/lite/core/api/tensor_utils.h
+      - path: tensorflow/lite/portable_type_to_tflitetype.h
+      - path: tensorflow/lite/schema/schema_generated.h
+      - path: tensorflow/lite/schema/schema_utils.h
+      - path: tensorflow/lite/version.h
+source:
+  - path: tensorflow/lite/micro/all_ops_resolver.cc
+  - path: tensorflow/lite/micro/memory_helpers.cc
+  - path: tensorflow/lite/micro/micro_allocator.cc
+  - path: tensorflow/lite/micro/micro_error_reporter.cc
+  - path: tensorflow/lite/micro/micro_interpreter.cc
+  - path: tensorflow/lite/micro/micro_profiler.cc
+  - path: tensorflow/lite/micro/micro_string.cc
+  - path: tensorflow/lite/micro/micro_time.cc
+  - path: tensorflow/lite/micro/micro_utils.cc
+  - path: tensorflow/lite/micro/recording_micro_allocator.cc
+  - path: tensorflow/lite/micro/recording_simple_memory_allocator.cc
+  - path: tensorflow/lite/micro/simple_memory_allocator.cc
+  - path: tensorflow/lite/micro/test_helpers.cc
+  - path: tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc
+  - path: tensorflow/lite/micro/memory_planner/linear_memory_planner.cc
+  - path: tensorflow/lite/c/common.c 
+  - path: tensorflow/lite/core/api/error_reporter.cc
+  - path: tensorflow/lite/core/api/flatbuffer_conversions.cc
+  - path: tensorflow/lite/core/api/op_resolver.cc
+  - path: tensorflow/lite/core/api/tensor_utils.cc
+  - path: tensorflow/lite/schema/schema_utils.cc
+documentation:
+  docset: gecko-platform
+  document: machine_learning/tensorflow/overview
+define:
+  - name: "TF_LITE_STATIC_MEMORY"

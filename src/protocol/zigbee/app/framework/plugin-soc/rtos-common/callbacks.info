@@ -1,0 +1,65 @@
+/** @brief
+ *
+ * This function is called from the RTOS Common plugin before the
+ * Application (1) task is created.
+ */
+void emberAfPluginRtosAppTask1InitCallback(void)
+{
+}
+
+/** @brief
+ *
+ * This function implements the Application (1) task main loop.
+ *
+ * @param p_arg Ver.: always
+ */
+void emberAfPluginRtosAppTask1MainLoopCallback(void *p_arg)
+{
+  while (true) {
+    // Main loop
+  }
+}
+
+/** @brief
+ *
+ * This function is called from the RTOS Common plugin before the
+ * Application (2) task is created.
+ */
+void emberAfPluginRtosAppTask2InitCallback(void)
+{
+}
+
+/** @brief
+ *
+ * This function implements the Application (2) task main loop.
+ *
+ * @param p_arg Ver.: always
+ */
+void emberAfPluginRtosAppTask2MainLoopCallback(void *p_arg)
+{
+  while (true) {
+    // Main loop
+  }
+}
+
+/** @brief
+ *
+ * This function is called from the RTOS Common plugin before the
+ * Application (3) task is created.
+ */
+void emberAfPluginRtosAppTask3InitCallback(void)
+{
+}
+
+/** @brief
+ *
+ * This function implements the Application (3) task main loop.
+ *
+ * @param p_arg Ver.: always
+ */
+void emberAfPluginRtosAppTask3MainLoopCallback(void *p_arg)
+{
+  while (true) {
+    // Main loop
+  }
+}

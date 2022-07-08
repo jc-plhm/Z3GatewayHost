@@ -1,0 +1,243 @@
+id: tensorflow_lite_micro_reference_kernels
+package: platform
+label: TensorFlow Lite Micro Reference Kernels
+description: >
+  This component includes the available reference kernel implementations used
+  with TensorFlow Lite for Microcontrollers. The reference kernels are pure C/C++
+  implementations, and do not include any platform-specific optimizations.
+
+  If any other kernel implementation components are included in the project,
+  each included kernel will replace the corresponding reference kernel implementation.
+
+category: Platform|Machine Learning|TensorFlow
+quality: alpha
+provides:
+  - name: tensorflow_lite_micro_reference_kernels
+  - name: tensorflow_kernel_implementation
+    allow_multiple: true
+root_path: util/third_party/tensorflow
+include:
+  - path: .
+    file_list:
+      - path: tensorflow/lite/micro/kernels/activation_utils.h
+      - path: tensorflow/lite/micro/kernels/fully_connected.h
+      - path: tensorflow/lite/micro/kernels/kernel_runner.h
+      - path: tensorflow/lite/micro/kernels/kernel_util.h
+      - path: tensorflow/lite/micro/kernels/micro_ops.h
+      - path: tensorflow/lite/micro/kernels/micro_utils.h
+      - path: tensorflow/lite/kernels/internal/common.h
+      - path: tensorflow/lite/kernels/internal/compatibility.h
+      - path: tensorflow/lite/kernels/internal/optimized/neon_check.h
+      - path: tensorflow/lite/kernels/internal/quantization_util.h
+      - path: tensorflow/lite/kernels/internal/reference/add.h
+      - path: tensorflow/lite/kernels/internal/reference/arg_min_max.h
+      - path: tensorflow/lite/kernels/internal/reference/binary_function.h
+      - path: tensorflow/lite/kernels/internal/reference/ceil.h
+      - path: tensorflow/lite/kernels/internal/reference/comparisons.h
+      - path: tensorflow/lite/kernels/internal/reference/concatenation.h
+      - path: tensorflow/lite/kernels/internal/reference/conv.h
+      - path: tensorflow/lite/kernels/internal/reference/depthwiseconv_float.h
+      - path: tensorflow/lite/kernels/internal/reference/depthwiseconv_uint8.h
+      - path: tensorflow/lite/kernels/internal/reference/dequantize.h
+      - path: tensorflow/lite/kernels/internal/reference/floor.h
+      - path: tensorflow/lite/kernels/internal/reference/fully_connected.h
+      - path: tensorflow/lite/kernels/internal/reference/hard_swish.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/add.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/conv.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/depthwise_conv.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/fully_connected.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/logistic.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/l2normalization.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/mean.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/mul.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/pooling.h
+      - path: tensorflow/lite/kernels/internal/reference/integer_ops/tanh.h
+      - path: tensorflow/lite/kernels/internal/reference/l2normalization.h
+      - path: tensorflow/lite/kernels/internal/reference/maximum_minimum.h
+      - path: tensorflow/lite/kernels/internal/reference/mul.h
+      - path: tensorflow/lite/kernels/internal/reference/neg.h
+      - path: tensorflow/lite/kernels/internal/reference/pad.h
+      - path: tensorflow/lite/kernels/internal/reference/pooling.h
+      - path: tensorflow/lite/kernels/internal/reference/prelu.h
+      - path: tensorflow/lite/kernels/internal/reference/process_broadcast_shapes.h
+      - path: tensorflow/lite/kernels/internal/reference/quantize.h
+      - path: tensorflow/lite/kernels/internal/reference/reduce.h
+      - path: tensorflow/lite/kernels/internal/reference/requantize.h
+      - path: tensorflow/lite/kernels/internal/reference/resize_nearest_neighbor.h
+      - path: tensorflow/lite/kernels/internal/reference/round.h
+      - path: tensorflow/lite/kernels/internal/reference/softmax.h
+      - path: tensorflow/lite/kernels/internal/reference/sub.h
+      - path: tensorflow/lite/kernels/internal/reference/logistic.h
+      - path: tensorflow/lite/kernels/internal/reference/strided_slice.h
+      - path: tensorflow/lite/kernels/internal/reference/tanh.h
+      - path: tensorflow/lite/kernels/internal/cppmath.h
+      - path: tensorflow/lite/kernels/internal/max.h
+      - path: tensorflow/lite/kernels/internal/min.h
+      - path: tensorflow/lite/kernels/internal/portable_tensor.h
+      - path: tensorflow/lite/kernels/internal/strided_slice_logic.h
+      - path: tensorflow/lite/kernels/internal/tensor_ctypes.h
+      - path: tensorflow/lite/kernels/internal/types.h
+      - path: tensorflow/lite/kernels/kernel_util.h
+      - path: tensorflow/lite/kernels/op_macros.h
+      - path: tensorflow/lite/kernels/padding.h
+source:
+  - path: tensorflow/lite/kernels/internal/quantization_util.cc
+  - path: tensorflow/lite/kernels/kernel_util.cc
+  - path: tensorflow/lite/micro/kernels/kernel_runner.cc
+  - path: tensorflow/lite/micro/kernels/kernel_util.cc
+  - path: tensorflow/lite/micro/kernels/activations.cc
+    unless: 
+      - tensorflow_kernel_optimized_activations
+      - tensorflow_kernel_accelerated_activations
+  - path: tensorflow/lite/micro/kernels/add.cc
+    unless: 
+      - tensorflow_kernel_optimized_add
+      - tensorflow_kernel_accelerated_add
+  - path: tensorflow/lite/micro/kernels/arg_min_max.cc
+    unless: 
+      - tensorflow_kernel_optimized_arg_min_max
+      - tensorflow_kernel_accelerated_arg_min_max
+  - path: tensorflow/lite/micro/kernels/ceil.cc
+    unless: 
+      - tensorflow_kernel_optimized_ceil
+      - tensorflow_kernel_accelerated_ceil
+  - path: tensorflow/lite/micro/kernels/circular_buffer.cc
+    unless: 
+      - tensorflow_kernel_optimized_circular_buffer
+      - tensorflow_kernel_accelerated_circular_buffer
+  - path: tensorflow/lite/micro/kernels/comparisons.cc
+    unless: 
+      - tensorflow_kernel_optimized_comparisons
+      - tensorflow_kernel_accelerated_comparisons
+  - path: tensorflow/lite/micro/kernels/concatenation.cc
+    unless: 
+      - tensorflow_kernel_optimized_concatenation
+      - tensorflow_kernel_accelerated_concatenation
+  - path: tensorflow/lite/micro/kernels/conv.cc
+    unless: 
+      - tensorflow_kernel_optimized_conv
+      - tensorflow_kernel_accelerated_conv
+  - path: tensorflow/lite/micro/kernels/depthwise_conv.cc
+    unless: 
+      - tensorflow_kernel_optimized_depthwise_conv
+      - tensorflow_kernel_accelerated_depthwise_conv
+  - path: tensorflow/lite/micro/kernels/dequantize.cc
+    unless: 
+      - tensorflow_kernel_optimized_dequantize
+      - tensorflow_kernel_accelerated_dequantize
+  - path: tensorflow/lite/micro/kernels/elementwise.cc
+    unless: 
+      - tensorflow_kernel_optimized_elementwise
+      - tensorflow_kernel_accelerated_elementwise
+  - path: tensorflow/lite/micro/kernels/ethosu.cc
+    unless: 
+      - tensorflow_kernel_optimized_ethosu
+      - tensorflow_kernel_accelerated_ethosu
+  - path: tensorflow/lite/micro/kernels/floor.cc
+    unless: 
+      - tensorflow_kernel_optimized_floor
+      - tensorflow_kernel_accelerated_floor
+  - path: tensorflow/lite/micro/kernels/fully_connected.cc
+    unless: 
+      - tensorflow_kernel_optimized_fully_connected
+      - tensorflow_kernel_accelerated_fully_connected
+  - path: tensorflow/lite/micro/kernels/hard_swish.cc
+    unless: 
+      - tensorflow_kernel_optimized_hard_swish
+      - tensorflow_kernel_accelerated_hard_swish
+  - path: tensorflow/lite/micro/kernels/l2norm.cc
+    unless: 
+      - tensorflow_kernel_optimized_l2norm
+      - tensorflow_kernel_accelerated_l2norm
+  - path: tensorflow/lite/micro/kernels/logical.cc
+    unless: 
+      - tensorflow_kernel_optimized_logical
+      - tensorflow_kernel_accelerated_logical
+  - path: tensorflow/lite/micro/kernels/logistic.cc
+    unless: 
+      - tensorflow_kernel_optimized_logistic
+      - tensorflow_kernel_accelerated_logistic
+  - path: tensorflow/lite/micro/kernels/maximum_minimum.cc
+    unless: 
+      - tensorflow_kernel_optimized_maximum_minimum
+      - tensorflow_kernel_accelerated_maximum_minimum
+  - path: tensorflow/lite/micro/kernels/mul.cc
+    unless: 
+      - tensorflow_kernel_optimized_mul
+      - tensorflow_kernel_accelerated_mul
+  - path: tensorflow/lite/micro/kernels/neg.cc
+    unless: 
+      - tensorflow_kernel_optimized_neg
+      - tensorflow_kernel_accelerated_neg
+  - path: tensorflow/lite/micro/kernels/pack.cc
+    unless: 
+      - tensorflow_kernel_optimized_pack
+      - tensorflow_kernel_accelerated_pack
+  - path: tensorflow/lite/micro/kernels/pad.cc
+    unless: 
+      - tensorflow_kernel_optimized_pad
+      - tensorflow_kernel_accelerated_pad
+  - path: tensorflow/lite/micro/kernels/pooling.cc
+    unless: 
+      - tensorflow_kernel_optimized_pooling
+      - tensorflow_kernel_accelerated_pooling
+  - path: tensorflow/lite/micro/kernels/prelu.cc
+    unless: 
+      - tensorflow_kernel_optimized_prelu
+      - tensorflow_kernel_accelerated_prelu
+  - path: tensorflow/lite/micro/kernels/quantize.cc
+    unless: 
+      - tensorflow_kernel_optimized_quantize
+      - tensorflow_kernel_accelerated_quantize
+  - path: tensorflow/lite/micro/kernels/reduce.cc
+    unless: 
+      - tensorflow_kernel_optimized_reduce
+      - tensorflow_kernel_accelerated_reduce
+  - path: tensorflow/lite/micro/kernels/reshape.cc
+    unless: 
+      - tensorflow_kernel_optimized_reshape
+      - tensorflow_kernel_accelerated_reshape
+  - path: tensorflow/lite/micro/kernels/resize_nearest_neighbor.cc
+    unless: 
+      - tensorflow_kernel_optimized_resize_nearest_neighbor
+      - tensorflow_kernel_accelerated_resize_nearest_neighbor
+  - path: tensorflow/lite/micro/kernels/round.cc
+    unless: 
+      - tensorflow_kernel_optimized_round
+      - tensorflow_kernel_accelerated_round
+  - path: tensorflow/lite/micro/kernels/shape.cc
+    unless: 
+      - tensorflow_kernel_optimized_shape
+      - tensorflow_kernel_accelerated_shape
+  - path: tensorflow/lite/micro/kernels/softmax.cc
+    unless: 
+      - tensorflow_kernel_optimized_softmax
+      - tensorflow_kernel_accelerated_softmax
+  - path: tensorflow/lite/micro/kernels/split.cc
+    unless: 
+      - tensorflow_kernel_optimized_split
+      - tensorflow_kernel_accelerated_split
+  - path: tensorflow/lite/micro/kernels/split_v.cc
+    unless: 
+      - tensorflow_kernel_optimized_split_v
+      - tensorflow_kernel_accelerated_split_v
+  - path: tensorflow/lite/micro/kernels/strided_slice.cc
+    unless: 
+      - tensorflow_kernel_optimized_strided_slice
+      - tensorflow_kernel_accelerated_strided_slice
+  - path: tensorflow/lite/micro/kernels/sub.cc
+    unless: 
+      - tensorflow_kernel_optimized_sub
+      - tensorflow_kernel_accelerated_sub
+  - path: tensorflow/lite/micro/kernels/svdf.cc
+    unless: 
+      - tensorflow_kernel_optimized_svdf
+      - tensorflow_kernel_accelerated_svdf
+  - path: tensorflow/lite/micro/kernels/tanh.cc
+    unless: 
+      - tensorflow_kernel_optimized_tanh
+      - tensorflow_kernel_accelerated_tanh
+  - path: tensorflow/lite/micro/kernels/unpack.cc
+    unless: 
+      - tensorflow_kernel_optimized_unpack
+      - tensorflow_kernel_accelerated_unpack
