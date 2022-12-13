@@ -1,6 +1,7 @@
 - [Z3Gateway Host BUILD](#z3gateway-host)
   - [build Z3GatewayHost](#build-z3gatewayhost)
   - [run Z3GatewayHost](#run-z3gatewayhost)
+  - [example of comands](#example-of-comands)
 - [Z3GatewayHost Commands](#z3gatewayhost-commands)
   - [info](#info)
   - [create-network](#create-network)
@@ -19,10 +20,10 @@
 
 - [Usefull Links](#usefull-links)
 
-# Z3Gateway Host BUILD
+# :floppy_disk: Z3Gateway Host BUILD
 ### Build Z3GatewayHost
 
-> WARNING: you might need to install libreadline-dev lib32ncurses5-dev before building the project
+> :warning:: you might need to install libreadline-dev lib32ncurses5-dev before building the project
 
 ```sh
 $ apt-get install libreadline-dev
@@ -44,7 +45,7 @@ the project is generated at src/Z3GatewayHost/build/exe/Z3GatewayHost_Sectronic.
 just run it with ```./Z3GatewayHost_Sectronic.exe -n 0 -p /dev/ttyUSB0```
 
 
-> example of comands
+### example of comands
 
 - create network
 
@@ -68,11 +69,11 @@ plugin network-creator-security open-network
 
 ```
 zcl on-off on
-plugin device-table send <deviceEui> <deviceEndpoint>
+plugin device-table send {<deviceEui>} <deviceEndpoint>
 ```
 
-### Z3GatewayHost Commands
-# Gateway
+# :blue_book: Z3GatewayHost Commands
+#  Gateway
 
 ## info: 
 
