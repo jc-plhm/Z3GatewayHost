@@ -1,10 +1,6 @@
 - [Z3Gateway Host BUILD](#z3gateway-host)
   - [build Z3GatewayHost](#build-z3gatewayhost)
   - [run Z3GatewayHost](#run-z3gatewayhost)
-- [Z3Gateway Host](#z3gateway-host)
-  - [run Z3GatewayHost docker](#run-z3gatewayhost)
-  - [docker logs Z3GatewayHost](#docker-logs-for-z3gatewayhost)
-  - [attach docker Z3GatewayHost](#attach-to-docker-z3gatewayhost-cli)
 - [Z3GatewayHost Commands](#z3gatewayhost-commands)
   - [info](#info)
   - [create-network](#create-network)
@@ -73,24 +69,6 @@ plugin network-creator-security open-network
 ```
 zcl on-off on
 plugin device-table send <deviceEui> <deviceEndpoint>
-```
-
-### run Z3GatewayHost docker
-
-```sh
-./z3host.sh run
-```
-
-### docker logs for Z3GatewayHost
-
-```sh
-./z3host.sh logs
-```
-
-### attach to docker Z3GatewayHost CLI
-
-```sh
-./z3host.sh attach
 ```
 
 ### Z3GatewayHost Commands
