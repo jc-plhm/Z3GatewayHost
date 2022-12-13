@@ -8,12 +8,17 @@
   - [open-network](#open-network-no-install-code)
   - [broad-pjoin](#network-broad-pjoin)
   - [close-network](#close-network)
+-[Device Commands](#device-commands)
   - [device-table](#display-device-table)
   - [bind](#bind)
   - [binding table](#display-binding-table)
   - [read attribute](#read-attribute)
   - [configure reporting](#configure-a-device-reporting)
   - [remove device](#remove-device-from-zigbee-network)
+- [OnOff commands](#onoff-commands)
+  - [On Command](#on-command)
+  - [Toggle Command](#toggle-command)
+  - [Off Command](#off-command)
 - [NCP](#ncp)
   - [Generate Firmware](#generate-firmware)
   - [Flash Firmware](#flash-firmware)
@@ -163,13 +168,22 @@ zcl global send-me-a-report <clusterID:2> <attributeId:2> <dataType:1> <minRepor
 plugin device-table send {<deviceEUI64>} <deviceEP:1>
 ```
 
-## remove device from zigbee network
+# OnOff Commands
 
-CLI: `zdo leave 0x170C`
+## On Command
 
-CLI params: `zdo leave <nodeID:2>`
+CLI: `zcl on-off on`
+CLI: `plugin device-table send {<deviceEui>} <deviceEndpoint>`
 
-description: remove device from zigbee network
+## Toggle Command
+
+CLI: `zcl on-off toggle`
+CLI: `plugin device-table send {<deviceEui>} <deviceEndpoint>`
+
+## Off Command
+
+CLI: `zcl on-off off`
+CLI: `plugin device-table send {<deviceEui>} <deviceEndpoint>`
 
 # NCP
 
