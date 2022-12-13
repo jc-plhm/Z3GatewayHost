@@ -1,7 +1,10 @@
-- [Z3Gateway Host](#z3gateway-host)
+- [Z3Gateway Host BUILD](#z3gateway-host)
+  - [build Z3GatewayHost](#build-z3gatewayhost)
   - [run Z3GatewayHost](#run-z3gatewayhost)
-  - [logs Z3GatewayHost](#logs-for-z3gatewayhost)
-  - [attach Z3GatewayHost](#attach-to-z3gatewayhost-cli)
+- [Z3Gateway Host](#z3gateway-host)
+  - [run Z3GatewayHost docker](#run-z3gatewayhost)
+  - [docker logs Z3GatewayHost](#docker-logs-for-z3gatewayhost)
+  - [attach docker Z3GatewayHost](#attach-to-docker-z3gatewayhost-cli)
 - [Z3GatewayHost Commands](#z3gatewayhost-commands)
   - [info](#info)
   - [create-network](#create-network)
@@ -20,20 +23,71 @@
 
 - [Usefull Links](#usefull-links)
 
-# Z3Gateway Host 
-### run Z3GatewayHost
+# Z3Gateway Host BUILD
+### Build Z3GatewayHost
+
+> WARNING: you might need to install libreadline-dev lib32ncurses5-dev before building the project
+
+```sh
+$ apt-get install libreadline-dev
+$ apt-get install lib32ncurses5-dev
+
+```
+
+> to build de the project just go to the project files and run make
+
+```sh
+cd src/Z3GatewayHost
+make
+```
+
+### Run Z3GatewayHost
+
+the project is generated at src/Z3GatewayHost/build/exe/Z3GatewayHost_Sectronic.exe
+
+just run it with ```./Z3GatewayHost_Sectronic.exe -n 0 -p /dev/ttyUSB0```
+
+
+> example of comands
+
+- create network
+
+```
+plugin network-creator start 1
+```
+
+- display device-table
+
+```
+plugin device-table print
+```
+
+- open network
+
+```
+plugin network-creator-security open-network
+```
+
+- send ON command
+
+```
+zcl on-off on
+plugin device-table send <deviceEui> <deviceEndpoint>
+```
+
+### run Z3GatewayHost docker
 
 ```sh
 ./z3host.sh run
 ```
 
-### logs for Z3GatewayHost
+### docker logs for Z3GatewayHost
 
 ```sh
 ./z3host.sh logs
 ```
 
-### attach to Z3GatewayHost CLI
+### attach to docker Z3GatewayHost CLI
 
 ```sh
 ./z3host.sh attach
