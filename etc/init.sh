@@ -12,7 +12,8 @@ echo $arch
 echo "DEVICE: "
 echo $DEVICE
 
-./Z3GatewayHost_Sectronic -n 0 -p $DEVICE
+./Z3GatewayHost_Sectronic -n 0 -p $DEVICE_TTY
+
 
 
 
