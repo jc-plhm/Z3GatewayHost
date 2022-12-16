@@ -19,10 +19,10 @@ Help() {
 function main() {
     case "$1" in
         "generate")
-          docker build -t z3builder -f etc/Dockerfile .
           TTY=$(cat .env | grep DEVICE_TTY= | cut -d '=' -f2)
-	  echo $TTY
-          docker run -it --rm  --device=$TTY --env-file .env --name z3builder -v $(pwd)/src:/app/src  -v $(pwd)/output:/app/output z3builder
+	        echo $TTY
+          docker build -t z3builder -f etc/Dockerfile .
+          docker --restart=always -d -it --device=$TTY --env-file .env --name z3builder -v $(pwd)/src:/app/src  z3builder
           ;;
         "build")
           docker build -t z3host -f etc/z3Host-standalone.dockerfile .

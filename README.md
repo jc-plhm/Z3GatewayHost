@@ -1,7 +1,8 @@
-- [Z3Gateway Host BUILD](#z3gateway-host)
+- [Z3Gateway Host BUILD](#floppy_disk-z3gateway-host-build)
   - [build Z3GatewayHost](#build-z3gatewayhost)
   - [run Z3GatewayHost](#run-z3gatewayhost)
   - [example of comands](#example-of-comands)
+- [Z3Gateway Host DOCKER BUILD](#floppy_disk-z3gateway-host-docker-build)
 - [Z3GatewayHost Commands](#z3gatewayhost-commands)
   - [info](#info)
   - [create-network](#create-network)
@@ -75,6 +76,23 @@ plugin network-creator-security open-network
 ```
 zcl on-off on
 plugin device-table send {<deviceEui>} <deviceEndpoint>
+```
+
+# :floppy_disk: Z3Gateway Host DOCKER BUILD
+
+1. tty
+
+set your device tty in .env with DEVICE_TTY=/dev/my_efr
+
+run
+```sh
+echo "DEVICE_TTY=/dev/my_efr" > .env
+```
+2. docker
+
+run 
+```sh 
+./manage.sh generate
 ```
 
 # :blue_book: Z3GatewayHost Commands
