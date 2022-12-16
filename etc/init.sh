@@ -1,4 +1,5 @@
 #!/bin/bash
+DEVICE=$DEVICE_TTY
 
 echo "Building Z3GatewayHost start ..."
 cd src/Z3GatewayHost
@@ -8,7 +9,6 @@ arch=$(uname -m)
 
 echo "ARCH: "
 echo $arch
-DEVICE=$DEVICE_TTY
 echo "DEVICE: "
 echo $DEVICE
 

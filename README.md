@@ -3,6 +3,10 @@
   - [run Z3GatewayHost](#run-z3gatewayhost)
   - [example of comands](#example-of-comands)
 - [Z3Gateway Host DOCKER BUILD](#floppy_disk-z3gateway-host-docker-build)
+  - [configure docker Z3GatewayHost](#configure-docker)
+  - [run docker Z3GatewayHost](#run-docker-z3gatewayhost)
+  - [docker logs Z3GatewayHost](#docker-logs-z3gatewayhost)
+  - [docker attach Z3GatewayHost](#docker-attach-z3gatewayhost)
 - [Z3GatewayHost Commands](#z3gatewayhost-commands)
   - [info](#info)
   - [create-network](#create-network)
@@ -80,19 +84,36 @@ plugin device-table send {<deviceEui>} <deviceEndpoint>
 
 # :floppy_disk: Z3Gateway Host DOCKER BUILD
 
-1. tty
+## configure docker
 
 set your device tty in .env with DEVICE_TTY=/dev/my_efr
 
-run
 ```sh
 echo "DEVICE_TTY=/dev/my_efr" > .env
 ```
-2. docker
+
+## run docker Z3GatewayHost 
+
 
 run 
 ```sh 
 ./manage.sh generate
+```
+
+## docker logs Z3GatewayHost
+
+
+run 
+```sh 
+docker logs -f --tail=100 z3builder
+```
+
+## docker attach Z3GatewayHost
+
+
+run 
+```sh 
+docker attach z3builder
 ```
 
 # :blue_book: Z3GatewayHost Commands
