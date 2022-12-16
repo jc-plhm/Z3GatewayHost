@@ -8,11 +8,13 @@ cd build/exe
 
 arch=$(uname -m)
 
-rm -rf /app/output/$arch
-mkdir -p /app/output/$arch
-mv Z3GatewayHost_Sectronic Z3GatewayHost
-cp Z3GatewayHost /app/output/$arch
-rm  -rf /app/src/Z3GatewayHost/build
+echo "ARCH: "
+echo $arch
+DEVICE=$DEVICE_TTY
+rcho "DEVICE: "
+echo $DEVICE
+
+./Z3GatewayHost -n 0 -p -n 0 -p $DEVICE
 
 
 

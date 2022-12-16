@@ -9,18 +9,20 @@ Help() {
 	echo
 	echo "options:"
 	echo "build       Build z3host image"
-	echo "run         Run docker image"
-	echo "logs        Display logs of z3Host image"
-	echo "exec        Docker exec to z3Host image"
-	echo "attach      Attach to z3Host image, (usefull to write in z3Host CLI, !!WARNING!! will restart z3GatewayHost on exit)"
+	echo "run         Run standalone z3host docker image"
+	echo "logs        Display logs of standalone z3Host image"
+	echo "exec        Docker exec to standalone z3Host image"
+	echo "attach      Attach to standalone z3Host image, (usefull to write in z3Host CLI, !!WARNING!! will restart z3GatewayHost on exit)"
 	echo "-h, --help  Display help"
 	echo
 }
 function main() {
     case "$1" in
         "generate")
-          docker build -t test-z3 -f etc/Dockerfile .
-          docker run -it --rm --name TTTT -v $(pwd)/src:/app/src  -v $(pwd)/output:/app/output test-z3
+          docker build -t z3builder -f etc/Dockerfile .
+          TTY=$(cat .env | grep DEVICE_TTY= | cut -d '=' -f2)
+	  echo $TTY
+          docker run -it --rm  --device=$TTY --env-file .env --name z3builder -v $(pwd)/src:/app/src  -v $(pwd)/output:/app/output z3builder
           ;;
         "build")
           docker build -t z3host -f etc/z3Host-standalone.dockerfile .
