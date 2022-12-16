@@ -21,6 +21,7 @@ function main() {
         "generate")
           TTY=$(cat .env | grep DEVICE_TTY= | cut -d '=' -f2)
 	        echo $TTY
+          docker rm -f z3builder
           docker build -t z3builder -f etc/Dockerfile .
           docker run --restart=always -d -it --device=$TTY --env-file .env --name z3builder -v $(pwd)/src:/app/src  z3builder
           ;;
