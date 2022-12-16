@@ -22,7 +22,7 @@ function main() {
           TTY=$(cat .env | grep DEVICE_TTY= | cut -d '=' -f2)
 	        echo $TTY
           docker build -t z3builder -f etc/Dockerfile .
-          docker --restart=always -d -it --device=$TTY --env-file .env --name z3builder -v $(pwd)/src:/app/src  z3builder
+          docker run --restart=always -d -it --device=$TTY --env-file .env --name z3builder -v $(pwd)/src:/app/src  z3builder
           ;;
         "build")
           docker build -t z3host -f etc/z3Host-standalone.dockerfile .
