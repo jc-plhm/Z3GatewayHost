@@ -14,7 +14,7 @@ DEVICE=$DEVICE_TTY
 rcho "DEVICE: "
 echo $DEVICE
 
-./Z3GatewayHost -n 0 -p -n 0 -p $DEVICE
+./Z3GatewayHost_Sectronic -n 0 -p -n 0 -p $DEVICE
 
 
 
