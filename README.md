@@ -94,14 +94,12 @@ echo "DEVICE_TTY=/dev/my_efr" > .env
 
 ## run docker Z3GatewayHost 
 
-
 run 
 ```sh 
 ./manage.sh generate
 ```
 
 ## docker logs Z3GatewayHost
-
 
 run 
 ```sh 
@@ -110,6 +108,7 @@ docker logs -f --tail=100 z3builder
 
 ## docker attach Z3GatewayHost
 
+Use this command to attach to Z3GatewayHost CLI
 
 run 
 ```sh 
