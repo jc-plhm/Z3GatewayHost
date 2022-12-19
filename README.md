@@ -4,6 +4,7 @@
   - [example of comands](#example-of-comands)
 - [Z3Gateway Host DOCKER BUILD](#floppy_disk-z3gateway-host-docker-build)
   - [configure docker Z3GatewayHost](#configure-docker)
+  - [build docker Z3GatewayHost](#build-docker-z3gatewayhost)
   - [run docker Z3GatewayHost](#run-docker-z3gatewayhost)
   - [docker logs Z3GatewayHost](#docker-logs-z3gatewayhost)
   - [docker attach Z3GatewayHost](#docker-attach-z3gatewayhost)
@@ -82,7 +83,7 @@ zcl on-off on
 plugin device-table send {<deviceEui>} <deviceEndpoint>
 ```
 
-# :floppy_disk: Z3Gateway Host DOCKER BUILD
+# :floppy_disk: Z3Gateway Host DOCKER
 
 ## configure docker
 
@@ -92,18 +93,25 @@ set your device tty in .env with DEVICE_TTY=/dev/my_efr
 echo "DEVICE_TTY=/dev/my_efr" > .env
 ```
 
+## build docker Z3GatewayHost 
+
+run 
+```sh 
+./manage.sh build
+```
+
 ## run docker Z3GatewayHost 
 
 run 
 ```sh 
-./manage.sh generate
+./manage.sh run
 ```
 
 ## docker logs Z3GatewayHost
 
 run 
 ```sh 
-docker logs -f --tail=100 z3builder
+docker logs -f --tail=100 z3host
 ```
 
 ## docker attach Z3GatewayHost
@@ -112,7 +120,7 @@ Use this command to attach to Z3GatewayHost CLI
 
 run 
 ```sh 
-docker attach z3builder
+docker attach z3host
 ```
 
 # :blue_book: Z3GatewayHost Commands
